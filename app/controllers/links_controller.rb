@@ -8,7 +8,8 @@ class LinksController < ApplicationController
       @link = Link.new(link_params)
       if @link.save
         format.js
-        format.html { redirect_to new_link_path }
+        # not actually using
+        # format.html { redirect_to new_link_path }
       end
     end
   end
