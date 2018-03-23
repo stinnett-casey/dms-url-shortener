@@ -1,0 +1,5 @@
+<tr>
+  <td class="text-center ellipses original-url"><%= link_to link.original_url, link.original_url, target: '_blank', title: link.original_url %></td>
+  <td class="text-center ellipses short-url"><%= link_to request.base_url + '/' + link.token, token_path(token: link.token), target: '_blank', class: 'short-url-link' %></td>
+  <td class="text-center ellipses times-visited"><%= link.times_visited %></td>
+</tr>

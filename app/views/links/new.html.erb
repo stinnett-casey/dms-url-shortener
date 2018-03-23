@@ -1,0 +1,21 @@
+<h1>Shorten A URL!</h1>
+
+<%= form_with model: Link.new do |f| %>
+  <%= f.text_field :original_url %>
+  <%= f.submit "Create Link" %>
+<% end %>
+
+<div class="links">
+  <table class="table table-hover table-fixed">
+    <thead>
+      <tr>
+        <th class="text-center">Original Url</th>
+        <th class="text-center">Shortened Url</th>
+        <th class="text-center">Times Visited</th>
+      </tr>
+      <tbody>
+        <%= render @links %>
+      </tbody>
+    </thead>
+  </table>
+</div>
