@@ -6,12 +6,18 @@ Made to impress! It shortens urls, it shows the most popular, it might even shin
 
 1. Make the DB
 
-  `$ rails db:schema:load`
+  ```ruby
+    $ rails db:schema:load
+  ```
 
 2. Seed the DB
 
-  `$ rails db:seed`
+  ```ruby
+    $ rails db:seed
+  ```
 
 3. Start yer engines!
 
-  `$ rails s`
+  ```ruby
+    $ rails s
+  ```
