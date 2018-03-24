@@ -19,6 +19,7 @@ class Link < ApplicationRecord
   end
 
   def self.most_popular(from_date)
+    # return the count hash for each link
     click_count = Click.where(created_at: from_date.beginning_of_day..DateTime.now.end_of_day).group(:link_id).count
     # click_count looks like: {2=>3, 3=>1}
     # sort by count and then reverse to be greatest to smallest and turn back into a Hash

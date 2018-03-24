@@ -3,6 +3,7 @@ class ClicksController < ApplicationController
   end
 
   def popular
+    # params[:time_period] looks like '3d ago'; parse to get the integer in the string
     time_ago = DateTime.now-(params[:time_period].to_i).days
     @popular_links_counts = Link.most_popular(time_ago)
     data = {labels: [], datasets: [{data: [], labels: [], backgroundColor: ['rgb(237,4,34,.5)', 'rgb(255,161,3,.5)', 'rgb(0,189,74,.5)', 'rgb(170,226,32,.5)']}], options: {responsive: false}}
@@ -13,11 +14,13 @@ class ClicksController < ApplicationController
       link_click_count = @popular_links_counts[link_id]
       link = Link.find(link_id)
 
+      # setting up the data for chart.js
       data[:datasets][0][:data].push(link_click_count)
       data[:datasets][0][:labels].push(link.original_url)
       data[:labels].push('/' + link.token)
     end
     respond_to do |format|
+      # give back the data for chart.js
       format.json { render json: {data: data} }
     end
   end

@@ -14,6 +14,7 @@ class LinksController < ApplicationController
     end
   end
 
+  # find the link by the token, increment visited count, and create a click record for it.
   def show
     @link = Link.find_by(token: params[:token])
     @link.times_visited = @link.times_visited + 1

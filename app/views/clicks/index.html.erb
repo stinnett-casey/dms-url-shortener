@@ -19,6 +19,7 @@
     });
   });
 </script>
+<%= link_to "Back", root_path %>
 <%= select_tag 'time_period', options_for_select(['1d ago', '2d ago', '3d ago', '4d ago'], '3d ago') %>
 <div class="d-flex justify-content-center align-items-center w-50 mx-auto">
   <canvas style="width:50%;height:50%;" id="links-canvas"></canvas>
