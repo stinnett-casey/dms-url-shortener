@@ -1,24 +1,17 @@
-# README
+# DMS Url Shortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Made to impress! It shortens urls, it shows the most popular, it might even shine your shoes!
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+1. Make the DB
 
-* System dependencies
+  $ rails db:schema:load
 
-* Configuration
+2. Seed the DB
 
-* Database creation
+  $ rails db:seed
 
-* Database initialization
+3. Start yer engines!
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  $ rails s
