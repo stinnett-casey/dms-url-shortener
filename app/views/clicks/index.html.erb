@@ -1,0 +1,25 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+<script>
+  $(() => {
+    function refreshChart(time_period) {
+     var ctx = document.getElementById('links-canvas').getContext('2d');
+     $.get('/popular', {time_period}, function({data}){
+       console.log(data);
+       new Chart(ctx, {
+         data: data,
+         type: 'polarArea'
+       });
+     }); 
+    }
+    refreshChart($('select#time_period').val());
+
+    $(document).on('change', 'select#time_period', function(){
+      let time_period = $(this).val();
+      refreshChart(time_period);
+    });
+  });
+</script>
+<%= select_tag 'time_period', options_for_select(['1d ago', '2d ago', '3d ago', '4d ago'], '3d ago') %>
+<div class="d-flex justify-content-center align-items-center w-50 mx-auto">
+  <canvas style="width:50%;height:50%;" id="links-canvas"></canvas>
+</div>
