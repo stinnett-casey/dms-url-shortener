@@ -6,4 +6,4 @@ $(document).on 'turbolinks:load', ->
     $row = $(this).closest('tr')
     $visited = $row.find('.times-visited')
     times_visited = parseInt($visited.text())
-    $visited.text times_visited+1
+    $visited.text times_visited++
